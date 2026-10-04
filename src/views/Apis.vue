@@ -1,12 +1,12 @@
 <template>
-<Meetuos/>
+<Meetups/>
 </template>
 
 <script>
-import Meetuos from "../components/Meetups/Meetuos";
+import Meetups from "../components/Meetups/Meetups";
 export default {
   name: "Apis",
-  components: {Meetuos}
+  components: {Meetups}
 }
 </script>
 

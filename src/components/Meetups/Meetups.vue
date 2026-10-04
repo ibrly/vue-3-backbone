@@ -60,7 +60,7 @@ import {mapGetters} from "vuex";
 
 
 export default {
-  name: "Meetuos",
+  name: "Meetups",
 
   data() {
     return {
