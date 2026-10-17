@@ -1,11 +1,12 @@
 import axios from "axios";
 
+const base = process.env.VUE_APP_BASE_URL_BACK;
 
 export default {
     async getMeetups(context) {
         await context.dispatch('loading', true)
         let data;
-        axios.get('http://localhost:1337/meetups')
+        axios.get(`${base}meetups`)
             .then(response => {
                 data = response.data
                 context.commit('setMeetup', {meetup: data})
@@ -26,7 +27,7 @@ export default {
     ) {
         await context.dispatch('loading',
             true)
-        axios.post('http://localhost:1337/meetups',
+        axios.post(`${base}meetups`,
             payload)
             .then(() => {
                 context.dispatch('getMeetups');
@@ -65,7 +66,7 @@ export default {
         context,
         payload
     ) {
-        axios.put(`http://localhost:1337/meetups/${payload.id}`,
+        axios.put(`${base}meetups/${payload.id}`,
             payload)
             .then(() => {
                 context.dispatch('getMeetups');
@@ -101,7 +102,7 @@ export default {
         payload
     ) {
         console.log(payload)
-        axios.delete(`http://localhost:1337/meetups/${payload.id}`)
+        axios.delete(`${base}meetups/${payload.id}`)
             .then(() => {
                 context.dispatch('getMeetups')
             })
